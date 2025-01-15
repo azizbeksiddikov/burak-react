@@ -5,6 +5,7 @@ import { HomePage } from "./screens/homePage";
 import { ProductsPage } from "./screens/productsPage/index";
 import { OrdersPage } from "./screens/ordersPage";
 import { UserPage } from "./screens/userPage";
+import { HelpPage } from "./screens/helpPage";
 import { HomeNavbar } from "./components/headers/HomeNavbar";
 import { OtherNavbar } from "./components/headers/OtherNavbar";
 import { Footer } from "./components/footer";
@@ -18,6 +19,9 @@ function App() {
       {location.pathname === "/" ? <HomeNavbar /> : <OtherNavbar />}
 
       <Switch>
+        <Route path="/help">
+          <HelpPage />
+        </Route>
         <Route path="/products">
           <ProductsPage />
         </Route>
