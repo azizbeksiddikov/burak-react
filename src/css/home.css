@@ -243,3 +243,75 @@
   overflow: hidden;
   background: #0c0e12;
 }
+
+/** ACTIVE USERS **/
+
+.homepage .active-users-frame {
+  width: 100%;
+  height: 550px;
+  display: flex;
+  background-color: #f8f8ff;
+}
+
+.homepage .active-users-frame .main {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .active-users-frame .main .category-title {
+  font-family: "Dancing Script";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 43px;
+}
+
+.homepage .active-users-frame .main .cards-frame {
+  width: 100%;
+  margin: 47px 2px 2px 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .active-users-frame .main .cards-frame .card {
+  width: 305px;
+  height: 302px;
+  cursor: pointer;
+}
+
+.homepage .active-users-frame .main .cards-frame .card .member-detail {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: -16px;
+  border-top: 1px solid;
+  background-color: #fff;
+}
+
+.homepage .active-users-frame .main .cards-frame .card .member-nickname {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-family: "Roboto Serif";
+  font-style: normal;
+}
+
+.homepage .active-users-frame .main .cards-frame .no-data {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 34px;
+  color: #e3c08d;
+}
