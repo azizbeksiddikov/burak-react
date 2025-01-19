@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Container, Stack, InputBase } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -93,6 +93,7 @@ export default function Products() {
                           <img
                             src="/icons/shopping-cart.svg"
                             style={{ display: "flex" }}
+                            alt=""
                           />
                         </Button>
                         <Button className="view-btn" sx={{ right: "36px" }}>
