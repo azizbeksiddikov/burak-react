@@ -17,17 +17,17 @@ class Test extends Component {
   };
 
   componentDidMount(): void {
-    console.log("Component mounted");
+    console.log("componentDidMount");
     // runs after first render
   }
 
   componentWillUnmount(): void {
-    console.log("Component will unmount");
+    console.log("componentWillUnmount");
     // runs before component is removed
   }
 
   componentDidUpdate(): void {
-    console.log("Component did update");
+    console.log("componentDidUpdate");
     // runs after state is updated
   }
 
