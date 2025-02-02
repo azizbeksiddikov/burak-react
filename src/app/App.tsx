@@ -12,9 +12,10 @@ import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
 
+import Test from "./screens/Test";
+
 function App() {
   const location = useLocation();
-  // console.log(location.pathname);
 
   return (
     <>
@@ -34,7 +35,7 @@ function App() {
           <UserPage />
         </Route>
         <Route path="/">
-          <HomePage />
+          <Test />
         </Route>
       </Switch>
 
