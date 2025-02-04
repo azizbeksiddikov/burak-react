@@ -35,7 +35,7 @@ function App() {
           <UserPage />
         </Route>
         <Route path="/">
-          <Test />
+          <HomePage />
         </Route>
       </Switch>
 
