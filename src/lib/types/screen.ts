@@ -2,7 +2,7 @@ import { Member } from "./member";
 import { Product } from "./product";
 
 /** REACT APP STATE */
-export interface AppRootInterface {
+export interface AppRootState {
   homePage: HomePageState;
 }
 
