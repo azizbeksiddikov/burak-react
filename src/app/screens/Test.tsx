@@ -13,7 +13,9 @@ class Test extends Component {
   }
 
   changeDetail = () => {
-    this.setState({ color: "blue", brand: "Tesla", year: 2023 });
+    // this.setState({ color: "blue", brand: "Tesla", year: 2023 });
+    this.state.color = "blue";
+    console.log("jafhakjh");
   };
 
   componentDidMount(): void {

@@ -36,6 +36,7 @@ function App() {
         </Route>
         <Route path="/">
           <HomePage />
+          {/* <Test /> */}
         </Route>
       </Switch>
 
