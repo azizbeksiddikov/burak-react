@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Button, Container, Stack } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
@@ -10,16 +10,21 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TextField from "@mui/material/TextField";
 
-const products = [
-  { productName: "Cutlet", imagePath: "img/cutlet.webp" },
-  { productName: "Kebab", imagePath: "img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "img/kebab.webp" },
-  { productName: "Lavash", imagePath: "img/lavash.webp" },
-  { productName: "Lavash", imagePath: "img/lavash.webp" },
-  { productName: "Cutlet", imagePath: "img/cutlet.webp" },
-  { productName: "Kebab", imagePath: "img/kebab-fresh.webp" },
-  { productName: "Kebab", imagePath: "img/kebab.webp" },
-];
+import { Dispatch } from "@reduxjs/toolkit";
+import { setProducts } from "./slice";
+import { Product } from "../../../lib/types/product";
+import { retrieveProducts } from "./selector";
+import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
+
+const actionDispatch = (dispatch: Dispatch) => ({
+  setProducts: (data: Product[]) => dispatch(setProducts(data)),
+});
+
+const productsRetriever = createSelector(
+  retrieveProducts,
+  (products) => products
+);
 
 export default function Products() {
   return (
