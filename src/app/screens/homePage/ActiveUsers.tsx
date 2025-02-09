@@ -4,15 +4,27 @@ import Card from "@mui/joy/Card";
 import { CssVarsProvider, Typography } from "@mui/joy";
 import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy/AspectRatio";
+import { retrieveTopUsers } from "./selector";
+import { createSelector } from "reselect";
+import MemberService from "../../services/MemberService.ts";
+import { Member } from "../../../lib/types/member";
+import { useSelector } from "react-redux";
+import { serverApi } from "../../../lib/config";
 
-const activeUsers = [
-  { memberNick: "Martin", memberImage: "/img/martin.webp" },
-  { memberNick: "Justin", memberImage: "/img/justin.webp" },
-  { memberNick: "Rose", memberImage: "/img/rose.webp" },
-  { memberNick: "Nusret", memberImage: "/img/nusret.webp" },
-];
+// const activeUsers = [
+//   { memberNick: "Martin", memberImage: "/img/martin.webp" },
+//   { memberNick: "Martin", memberImage: "/img/martin.webp" },
+//   { memberNick: "Martin", memberImage: "/img/martin.webp" },
+//   { memberNick: "Martin", memberImage: "/img/martin.webp" },
+// ];
+
+const topUsersRetriever = createSelector(retrieveTopUsers, (topUsers) => ({
+  topUsers,
+}));
 
 export default function ActiveUsers() {
+  const { topUsers } = useSelector(topUsersRetriever);
+
   return (
     <div className="active-users-frame">
       <Container>
@@ -20,19 +32,21 @@ export default function ActiveUsers() {
           <Box className="category-title">Active User</Box>
           <Stack className="cards-frame">
             <CssVarsProvider>
-              {activeUsers.length !== 0 ? (
-                activeUsers.map((user, index) => {
+              {topUsers.length !== 0 ? (
+                topUsers.map((member) => {
+                  const image_path = `${serverApi}/${member.memberImage}`;
+
                   return (
-                    <Card key={index} variant="outlined" className="card">
+                    <Card key={member._id} variant="outlined" className="card">
                       <CardOverflow>
                         <AspectRatio ratio="1">
-                          <img src={user.memberImage} alt="" />
+                          <img src={image_path} alt="" />
                         </AspectRatio>
                       </CardOverflow>
 
                       <CardOverflow variant="soft" className="member-detail">
                         <Typography className="member-nickname">
-                          {user.memberNick}
+                          {member.memberNick}
                         </Typography>
                       </CardOverflow>
                     </Card>
