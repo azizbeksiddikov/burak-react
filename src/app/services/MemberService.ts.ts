@@ -13,7 +13,18 @@ class MemberService {
     try {
       const url = `${this.path}/member/top-users`;
       const result = await axios.get(url);
-      console.log("result.data in getTopUsers:", result.data);
+
+      return result.data;
+    } catch (err) {
+      console.log("Error, getTopUsers", err);
+      throw err;
+    }
+  }
+
+  public async getRestaurant(): Promise<Member> {
+    try {
+      const url = `${this.path}/member/restaurant`;
+      const result = await axios.get(url);
 
       return result.data;
     } catch (err) {
