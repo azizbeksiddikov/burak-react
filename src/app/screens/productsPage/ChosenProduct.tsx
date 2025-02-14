@@ -23,6 +23,7 @@ import { serverApi } from "../../../lib/config";
 import { useHistory } from "react-router-dom";
 import MemberService from "../../services/MemberService.ts";
 import { Member } from "../../../lib/types/member.ts";
+import { CartItem } from "../../../lib/types/search.ts";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setRestaurant: (data: Member) => dispatch(setRestaurant(data)),
@@ -41,7 +42,12 @@ const restaurantRetriever = createSelector(
   })
 );
 
-export default function ChosenProduct() {
+interface ChosenProductProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function ChosenProduct(props: ChosenProductProps) {
+  const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
   const { setChosenProduct, setRestaurant } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
@@ -61,7 +67,7 @@ export default function ChosenProduct() {
       .getRestaurant()
       .then((data) => setRestaurant(data))
       .catch((err) => console.log(err));
-  });
+  }, []);
   if (!chosenProduct) return null;
   return (
     <div className={"chosen-product"}>
