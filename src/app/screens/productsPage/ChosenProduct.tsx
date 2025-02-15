@@ -43,11 +43,12 @@ const restaurantRetriever = createSelector(
 );
 
 interface ChosenProductProps {
+  cartItems: CartItem[];
   onAdd: (item: CartItem) => void;
 }
 
 export default function ChosenProduct(props: ChosenProductProps) {
-  const { onAdd } = props;
+  const { cartItems, onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
   const { setChosenProduct, setRestaurant } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
@@ -122,7 +123,20 @@ export default function ChosenProduct(props: ChosenProductProps) {
               <span>{chosenProduct?.productPrice}</span>
             </div>
             <div className={"button-box"}>
-              <Button variant="contained">Add To Basket</Button>
+              <Button
+                onClick={() => {
+                  onAdd({
+                    _id: chosenProduct._id,
+                    name: chosenProduct.productName,
+                    price: chosenProduct.productPrice,
+                    quantity: 1,
+                    image: chosenProduct.productImages[0],
+                  });
+                }}
+                variant="contained"
+              >
+                Add To Basket
+              </Button>
             </div>
           </Box>
         </Stack>

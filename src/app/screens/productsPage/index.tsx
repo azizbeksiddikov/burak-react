@@ -6,18 +6,22 @@ import "../../../css/products.css";
 import { CartItem } from "../../../lib/types/search";
 
 interface ProductsPageProps {
+  cartItems: CartItem[];
   onAdd: (item: CartItem) => void;
+  onRemove: (item: CartItem) => void;
+  onDelete: (item: CartItem) => void;
+  onDeleteAll: () => void;
 }
 
 export default function ProductsPage(props: ProductsPageProps) {
   const products = useRouteMatch();
-  const { onAdd } = props;
+  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
 
   return (
     <div className="products-page">
       <Switch>
         <Route path={`${products.path}/:productId`}>
-          <ChosenProduct onAdd={onAdd} />
+          <ChosenProduct cartItems={cartItems} onAdd={onAdd} />
         </Route>
         <Route path={`${products.path}/`}>
           <Products onAdd={onAdd} />
