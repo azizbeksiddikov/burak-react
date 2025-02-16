@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Switch, Route, useLocation } from "react-router-dom";
 import HomePage from "./screens/homePage";
-import ProductsPage from "./screens/productsPage/index";
+import ProductsPage from "./screens/productsPage/";
 import OrdersPage from "./screens/ordersPage";
 import UserPage from "./screens/userPage";
 import HelpPage from "./screens/helpPage";
 import HomeNavbar from "./components/headers/HomeNavbar";
 import OtherNavbar from "./components/headers/OtherNavbar";
 import Footer from "./components/footer";
-import { CartItem } from "../lib/types/search";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
 import "../css/app.css";
@@ -19,7 +18,7 @@ function App() {
   const location = useLocation();
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(true);
+  const [loginOpen, setLoginOpen] = useState(false);
 
   /** Handlers */
   const handleSignUpClose = () => setSignupOpen(false);
@@ -34,6 +33,8 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
         />
       ) : (
         <OtherNavbar
@@ -42,6 +43,8 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
         />
       )}
 
@@ -74,8 +77,8 @@ function App() {
       <AuthenticationModal
         signupOpen={signupOpen}
         loginOpen={loginOpen}
-        handleSignupClose={handleSignUpClose}
         handleLoginClose={handleLoginClose}
+        handleSignupClose={handleSignUpClose}
       />
     </>
   );

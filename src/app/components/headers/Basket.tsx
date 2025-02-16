@@ -5,7 +5,7 @@ import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
 import { serverApi } from "../../../lib/config";
 import DeletForeverIcon from "@mui/icons-material/DeleteForever";
@@ -19,9 +19,9 @@ interface BasketProps {
 }
 
 export default function Basket(props: BasketProps) {
-  const authMember = null;
+  // const authMember = null;
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
-  const history = useHistory();
+  // const history = useHistory();
   const itemsPrice = cartItems.reduce(
     (a: number, c: CartItem) => a + c.price * c.quantity,
     0
@@ -51,7 +51,7 @@ export default function Basket(props: BasketProps) {
         onClick={handleClick}
       >
         <Badge badgeContent={cartItems.length} color="secondary">
-          <img src={"/icons/shopping-cart.svg"} />
+          <img src={"/icons/shopping-cart.svg"} alt="shopping-cart" />
         </Badge>
       </IconButton>
       <Menu
@@ -110,14 +110,14 @@ export default function Basket(props: BasketProps) {
               {cartItems.map((item: CartItem) => {
                 const imagePath = `${serverApi}/${item.image}`;
                 return (
-                  <Box className={"basket-info-box"}>
+                  <Box className={"basket-info-box"} key={item._id}>
                     <div className={"cancel-btn"}>
                       <CancelIcon
                         color={"primary"}
                         onClick={() => onDelete(item)}
                       />
                     </div>
-                    <img src={imagePath} className={"product-img"} />
+                    <img src={imagePath} className={"product-img"} alt="" />
                     <span className={"product-name"}>{item.name}</span>
                     <p className={"product-price"}>
                       ${item.price} x {item.quantity}

@@ -7,7 +7,11 @@ export function Settings() {
   return (
     <Box className={"settings"}>
       <Box className={"member-media-frame"}>
-        <img src={"/icons/default-user.svg"} className={"mb-image"} />
+        <img
+          src={"/icons/default-user.svg"}
+          className={"mb-image"}
+          alt="default"
+        />
         <div className={"media-change-box"}>
           <span>Upload image</span>
           <p>JPG, JPEG, PNG formats only!</p>

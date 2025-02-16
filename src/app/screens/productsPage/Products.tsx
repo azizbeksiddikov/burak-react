@@ -359,6 +359,7 @@ export default function Products(props: ProductsProps) {
           <Stack className="address-area">
             <Box className="title">Our Address</Box>
             <iframe
+              title="map"
               style={{ marginTop: "60px" }}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.467927012871!2d-122.0841436846819!3d37.42199977982518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3c3e4e3c6d%3A0x4b6b6b1d3e3c0b2e!2sGoogleplex!5e0!3m2!1sen!2str!4v1634742459931!5m2!1sen!2str"
               width="1320"

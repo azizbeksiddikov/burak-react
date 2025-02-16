@@ -6,8 +6,8 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import AspectRatio from "@mui/joy/AspectRatio";
 import { retrieveTopUsers } from "./selector";
 import { createSelector } from "reselect";
-import MemberService from "../../services/MemberService.ts";
-import { Member } from "../../../lib/types/member";
+// import MemberService from "../../services/MemberService.ts";
+// import { Member } from "../../../lib/types/member";
 import { useSelector } from "react-redux";
 import { serverApi } from "../../../lib/config";
 

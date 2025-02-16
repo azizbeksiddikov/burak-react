@@ -19,14 +19,18 @@ export default function PausedOrders() {
                   return (
                     <Box key={index2} className="orders-name-price">
                       <Stack className="order-dish-class">
-                        <img src="img/lavash.webp" className="order-dish-img" />
+                        <img
+                          src="img/lavash.webp"
+                          className="order-dish-img"
+                          alt=""
+                        />
                         <p className="title-dish">Lavash</p>
                       </Stack>
                       <Stack className="price-box">
                         <p>$10</p>
-                        <img src="/icons/close.svg" />
+                        <img src="/icons/close.svg" alt="" />
                         <p>2</p>
-                        <img src="/icons/pause.svg" />
+                        <img src="/icons/pause.svg" alt="" />
                         <p style={{ marginLeft: "15px" }}>$20</p>
                       </Stack>
                     </Box>
@@ -38,10 +42,18 @@ export default function PausedOrders() {
                 <Box className="box-total">
                   <p>Product price</p>
                   <p>$60</p>
-                  <img src="/icons/plus.svg" style={{ marginLeft: "20px" }} />
+                  <img
+                    src="/icons/plus.svg"
+                    style={{ marginLeft: "20px" }}
+                    alt=""
+                  />
                   <p> Delivery cost</p>
                   <p>$5</p>
-                  <img src="/icons/pause.svg" style={{ marginLeft: "20px" }} />
+                  <img
+                    src="/icons/pause.svg"
+                    style={{ marginLeft: "20px" }}
+                    alt=""
+                  />
                   <p>Total</p>
                   <p>$65</p>
                 </Box>
@@ -67,6 +79,7 @@ export default function PausedOrders() {
             <img
               src="/icons/noimage-list.svg"
               style={{ width: 300, height: 300 }}
+              alt=""
             />
           </Box>
         )}
