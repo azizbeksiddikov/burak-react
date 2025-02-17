@@ -17,6 +17,7 @@ import "../css/footer.css";
 function App() {
   const location = useLocation();
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
+  // Can we pass setSignupOpen AND setLoginOpen to the child components directly?
   const [signupOpen, setSignupOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
