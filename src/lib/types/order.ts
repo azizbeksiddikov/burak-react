@@ -5,7 +5,7 @@ export interface OrderItemInput {
   itemQuantity: number;
   itemPrice: number;
   productId: string;
-  orderId: string;
+  orderId?: string;
 }
 
 export interface OrderItem {
