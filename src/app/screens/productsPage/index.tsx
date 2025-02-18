@@ -15,7 +15,7 @@ interface ProductsPageProps {
 
 export default function ProductsPage(props: ProductsPageProps) {
   const products = useRouteMatch();
-  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = props;
+  const { cartItems, onAdd } = props; // onRemove, onDelete, onDeleteAll
 
   return (
     <div className="products-page">
