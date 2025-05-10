@@ -50,7 +50,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
   const [memberPhone, setMemberPhone] = useState("");
   const [memberPassword, setMemberPassword] = useState("");
   const { setAuthMember } = useGlobals();
-
+  // console.log("memberNick", memberNick);
   /** HANDLERS **/
 
   const handleUsername = (e: T) => {
